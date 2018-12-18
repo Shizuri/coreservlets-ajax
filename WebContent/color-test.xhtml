@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>color-test</title>
+	<link href="./css/styles.css" rel="stylesheet" type="text/css" />
+</h:head>
+<h:body>
+
+	<h:form>
+		<p:fieldset style="background-color: #{ct.fieldsetColor};" id="fset">
+		<!-- you can change only components that have an h: or p: tag. Here I use PrimeFaces to enable a p:fieldset tag -->
+			<legend>color test</legend>
+			<div align="center">
+				<h:outputText value="#{ct.colorString}" id="output" style="color: #{ct.colorString};"/><br/>
+				<h:outputText value="#{ct.colorString}" id="blah" style="color: #{ct.colorString};"/><br/>
+				<h:outputText value="#{ct.fieldsetColor}" id="tester" style="color: #{ct.fieldsetColor};"/>
+				<br />
+				<br />
+				
+				<h:commandButton value="Text to Green" action="#{ct.toGreen}">
+					<f:ajax render="output blah" />
+					<!-- you can also put two values separated by space instead of separate f:ajax calls -->
+				</h:commandButton>
+				<br />
+				<br />
+				<h:commandButton value="Text to Yellow" action="#{ct.toYellow}">
+					<f:ajax render="output" />
+					<f:ajax render="blah" />
+				</h:commandButton>
+				<br />
+				<br />
+				<h:commandButton value="Text to Black" action="#{ct.toBlack}">
+					<f:ajax render="output" />
+					<f:ajax render="blah" />
+				</h:commandButton>
+				<br />
+				<br />
+				
+				<h:commandButton value="Fieldset to Green" action="#{ct.fToGreen}">
+					<f:ajax render="fset" />
+					<f:ajax render="tester" />
+				</h:commandButton>
+				<br />
+				<br />
+				<h:commandButton value="Fieldset to Yellow" action="#{ct.fToYellow}">
+					<f:ajax render="fset" />
+					<f:ajax render="tester" />
+				</h:commandButton>
+				<br />
+				<br />
+				<h:commandButton value="Fieldset to Black" action="#{ct.fToBlack}">
+					<f:ajax render="fset" />
+					<f:ajax render="tester" />
+				</h:commandButton>
+			</div>
+		</p:fieldset>
+	</h:form>
+
+</h:body>
+</html>
