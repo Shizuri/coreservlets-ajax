@@ -1,21 +1,18 @@
 package somepackage;
 
-import java.io.Serializable;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean(name="cc")
+@ManagedBean(name="cityc")
 @SessionScoped
-public class CityController implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class CityController{
 	
 	private String cityName = "Baltimore";
-	private String nflTeam = CityDatabase.cityList.get(cityName).getNflTeam();
-	private String mlbTeam = CityDatabase.cityList.get(cityName).getMlbTeam();
+	private String nflTeam;
+	private String mlbTeam;
 	
 	public String getNflTeam() {
+		nflTeam = CityDatabase.CITY_LIST.get(cityName).getNflTeam();
 		return nflTeam;
 	}
 
@@ -24,6 +21,7 @@ public class CityController implements Serializable {
 	}
 
 	public String getMlbTeam() {
+		mlbTeam = CityDatabase.CITY_LIST.get(cityName).getMlbTeam();
 		return mlbTeam;
 	}
 

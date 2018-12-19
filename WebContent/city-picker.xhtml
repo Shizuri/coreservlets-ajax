@@ -20,15 +20,16 @@
 					</tr>
 					<tr>
 						<td>
-							<h:outputText value="#{cc.cityName}" id="name"/><br/>
-							<h:outputText value="#{cc.nflTeam}" id="nfl"/><br/>
-							<h:outputText value="#{cc.mlbTeam}" id="mlb"/>
+							City Name: <h:outputText value="#{cityc.cityName}" id="name"/><br/>
+							NFL team: <h:outputText value="#{cityc.nflTeam}" id="nfl"/><br/>
+							MLB team: <h:outputText value="#{cityc.mlbTeam}" id="mlb"/>
 						</td>
 						<td>
-							<h:selectOneMenu value="#{cc.cityName}">
-								<f:selectItems value="#{cc.cityList}"/>
+							<h:selectOneMenu value="#{cityc.cityName}">
+
+								<f:selectItems value="#{cityc.cityList}"/>
 								<f:ajax render="name nfl mlb"/>
-							</h:selectOneMenu>							
+							</h:selectOneMenu>
 						</td>
 					</tr>
 				</table>
